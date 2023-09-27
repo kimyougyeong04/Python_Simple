@@ -178,7 +178,7 @@ print(a.keys())    # key 추출
 print(a.values())  # value 추출
 print(a.items())   # (key, value) 추출
 
-print(list(a.key()))  # 활용 방법
+print(list(a.keys()))  # 활용 방법
 
 # clear() : dict 초기화
 
@@ -187,3 +187,19 @@ abc.clear()
 print(abc)
 
 a = {}
+print(type(a))
+
+# 컬렉션 타입
+# 1. LIST[], 수정
+# 2. TUPLE(), 수정 불가!
+#     (1, 2, 3) => 1, 2, 3
+#     (1) => 1
+# 3. DICT{key:value}
+# 4. SET{}
+#  - 중복값 허용 X
+# {} 은 dict
+# DICT: JSON(데이터 전송 포맷)
+
+
+
+
