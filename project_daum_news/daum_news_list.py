@@ -12,9 +12,11 @@ if result.status_code == 200:
     print("URL 접속 성공 → 데이터를 수집합니다.")
     doc = BeautifulSoup(result.text, "html.parser")
     url_list = doc.select("ul.list_news2 a.link_txt")
+
     for url in url_list:
         count += 1
         print(f"{count}", "="*150)
         get_news(url["href"])
 else:
     print("잘못된 URL 경로입니다. 다시 한 번 확인해주세요.")
+
