@@ -1,6 +1,6 @@
 # SELENIUM
 
-# pop install selenium
+# pip install selenium
 # pip install webdriver_manager
 
 # ** Selenium을 사용하는 이유?
@@ -24,12 +24,12 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDrivenManager
+from webdriver_manager.chrome import ChromeDriverManager
 
 # 1. Selenium 전용 웹 브라우저 구동
 options = Options()
 options.add_experimental_option("detach", True)
-driver = webdriver.Chrome(service=Service(ChromeDrivenManager()), options=options)
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 # 2.URL 접속
 url ="https://movie.daum.net/moviedb/grade?movieId=165591"
