@@ -13,3 +13,18 @@
 # python - pymysql ----------------------------- Database
 
 import pymysql
+
+def connection():
+    try:
+        conn = pymysql.connect(
+            host="127.0.0.1",
+            port=3306,
+            user="root",
+            password="1234",
+            db="simple",
+            charset="utf8",
+            autocommit=True,
+            cursorclass=pymysql.cursoors.DictCursor
+        )
+    except pymysql.Error as e:
+        print(f"MARIADB 연결 실패 {e}")
