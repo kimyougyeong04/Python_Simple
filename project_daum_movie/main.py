@@ -16,6 +16,8 @@
 #  - URL: http://sites.google.com/chromiuum.org/driver/
 # 2.실시간(코드) 다운로드
 
+from db.movie_dao import add_review
+
 from datetime import datetime, timedelta
 import math
 import re
@@ -90,9 +92,9 @@ for item in review_list:
     print(f"  - 평점: {review_score}")
 
     review_content = item.select("p.desc_txt")[0].get_text().strip()
-    print(f"  - 리뷰: {review_content}")
     # \n : 한 줄 개행 → \n을 제거
     review_content = re.sub("\n", "", review_content)
+    print(f"  - 리뷰: {review_content}")
 
     review_writer = item.select("a.link_nick > span")[1].get_text()  # [댓글 작성자, 작성자, 댓글 모아보기]
     print(f"  - 작성자: {review_writer}")
@@ -111,3 +113,13 @@ for item in review_list:
         review_date = review_date.strftime("%Y. %m. %d. %H:%M")
 
     print(f"  - 날짜: {review_date}")
+
+    # MariaDB 저장(제목, 리뷰, 평점, 작성자, 작성일자)
+    data = {
+        "title": movie_title,
+        "review": review_content,
+        "score": review_score,
+        "writer": review_writer,
+        "reg_date": review_date
+    }
+    add_review(data)
