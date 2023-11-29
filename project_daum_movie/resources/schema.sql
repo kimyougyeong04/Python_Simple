@@ -13,3 +13,7 @@ CREATE TABLE `tbl_review` (
 COMMENT='다음 영화리뷰'
 AUTO_INCREMENT=1
 ;
+
+# 표를 초기화
+USE SIMPLE;
+TRUNCATE tbl_review
